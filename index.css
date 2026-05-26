@@ -1,0 +1,9 @@
+.team-photo{
+width:88px;
+height:88px;
+object-fit:cover;
+border-radius:50%;
+aspect-ratio:1/1;
+display:block;
+margin:0 auto 12px;
+}

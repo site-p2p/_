@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<!-- ========= ВСТАВКА: ФАВИКОН (ИКОНКА НА ВКЛАДКЕ БРАУЗЕРА) ========= -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234A6FA5'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EP2P%3C/text%3E%3C/svg%3E">
+<!-- ========= КОНЕЦ ВСТАВКИ ФАВИКОНА ========= -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2P — Психологическая поддержка студентов</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:system-ui,-apple-system,sans-serif;
+background:#f5f9ff;
+color:#1a1a2e;
+overflow-x:hidden;
+}
+
+.container{
+max-width:1280px;
+margin:auto;
+padding:0 24px;
+}
+
+/* BACKGROUND */
+
+.blob{
+position:fixed;
+border-radius:50%;
+filter:blur(80px);
+z-index:-1;
+opacity:0.4;
+animation:blobMove 12s infinite alternate ease-in-out;
+}
+
+.blob1{
+width:400px;
+height:400px;
+background:#8cbcff;
+top:-120px;
+left:-120px;
+}
+
+.blob2{
+width:500px;
+height:500px;
+background:#caa8ff;
+bottom:-180px;
+right:-150px;
+animation-delay:3s;
+}
+
+@keyframes blobMove{
+0%{
+transform:translate(0,0) scale(1);
+}
+100%{
+transform:translate(40px,-40px) scale(1.1);
+}
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,0.4);
+}
+
+.header-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 24px;
+max-width:1280px;
+margin:auto;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#4A6FA5;
+}
+
+.logo span{
+color:#8ca0b8;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+font-weight:600;
+color:#1a1a2e;
+position:relative;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:#4A6FA5;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.btn-primary{
+border:none;
+background:linear-gradient(135deg,#4A6FA5,#6c94d3);
+color:white;
+padding:14px 26px;
+border-radius:999px;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 12px 30px rgba(74,111,165,0.25);
+}
+
+.btn-primary:hover{
+transform:translateY(-4px);
+box-shadow:0 18px 40px rgba(74,111,165,0.35);
+}
+
+.btn-outline{
+background:transparent;
+border:2px solid #4A6FA5;
+color:#4A6FA5;
+padding:14px 26px;
+border-radius:999px;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
+}
+
+.btn-outline:hover{
+background:#4A6FA5;
+color:white;
+transform:translateY(-4px);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:140px 24px 100px;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.badge{
+display:inline-block;
+padding:10px 18px;
+background:#4A6FA5;
+color:white;
+border-radius:999px;
+font-size:14px;
+margin-bottom:22px;
+}
+
+.hero h1{
+font-size:68px;
+line-height:1.05;
+margin-bottom:24px;
+}
+
+.hero h1 span{
+color:#4A6FA5;
+}
+
+.hero p{
+font-size:20px;
+line-height:1.7;
+color:#5f697b;
+margin-bottom:34px;
+}
+
+.hero-buttons{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.hero-image{
+position:relative;
+height:560px;
+border-radius:40px;
+background:rgba(255,255,255,0.5);
+backdrop-filter:blur(18px);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+.hero-mini-image{
+width:280px;
+animation:floatImage 6s infinite ease-in-out;
+filter:drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+}
+
+@keyframes floatImage{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-18px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+.float-label{
+position:absolute;
+padding:14px 20px;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(12px);
+border-radius:20px;
+font-weight:600;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+animation:floatLabel 5s infinite ease-in-out;
+}
+
+.label1{
+top:90px;
+left:20px;
+}
+
+.label2{
+bottom:90px;
+right:20px;
+animation-delay:2s;
+}
+
+@keyframes floatLabel{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-12px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+.hero-info{
+margin-top:36px;
+padding:24px;
+border-radius:26px;
+background:rgba(255,255,255,0.5);
+backdrop-filter:blur(14px);
+display:flex;
+flex-direction:column;
+gap:14px;
+max-width:450px;
+}
+
+/* SECTION */
+
+section{
+padding:110px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:48px;
+margin-bottom:16px;
+}
+
+.section-title p{
+font-size:18px;
+color:#667085;
+}
+
+.divider{
+width:120px;
+height:5px;
+background:linear-gradient(90deg,#4A6FA5,#8ab5ff);
+border-radius:999px;
+margin:24px auto 0;
+}
+
+.grid-2{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+}
+
+.grid-3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.grid-4{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(18px);
+border-radius:32px;
+padding:40px 30px 35px 30px;
+transition:0.5s;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+position:relative;
+overflow:hidden;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-10px) rotateX(2deg) rotateY(-2deg);
+box-shadow:0 20px 50px rgba(74,111,165,0.15);
+}
+
+.mini-card-image{
+width:78px;
+margin-bottom:18px;
+transition:0.5s;
+}
+
+.card:hover .mini-card-image{
+transform:scale(1.08) rotate(4deg);
+}
+
+.card h3{
+font-size:24px;
+margin-bottom:12px;
+}
+
+.card p{
+line-height:1.7;
+color:#5f697b;
+}
+
+/* Увеличенные стили для фото команды */
+.team-photo {
+width: 180px;
+height: 180px;
+border-radius: 50%;
+object-fit: cover;
+margin: 0 auto 25px auto;
+display: block;
+border: 5px solid #4A6FA5;
+box-shadow: 0 12px 28px rgba(74,111,165,0.25);
+transition: 0.4s;
+}
+
+.card:hover .team-photo {
+transform: scale(1.05);
+border-color: #8ab5ff;
+box-shadow: 0 18px 35px rgba(74,111,165,0.4);
+}
+
+/* Увеличенная иконка для фото */
+.team-icon {
+width: 180px;
+height: 180px;
+border-radius: 50%;
+margin: 0 auto 25px auto;
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(135deg, #4A6FA5, #8ab5ff);
+font-size: 72px;
+color: white;
+border: 5px solid white;
+box-shadow: 0 12px 28px rgba(74,111,165,0.25);
+transition: 0.4s;
+}
+
+.card:hover .team-icon {
+transform: scale(1.05);
+box-shadow: 0 18px 35px rgba(74,111,165,0.4);
+}
+
+/* ========= ВСТАВКА: СТИЛИ ДЛЯ ДЕМО-ОКНА COOKIES ========= */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    padding: 20px 30px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
+    z-index: 10000;
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+    border-top: 1px solid rgba(74,111,165,0.3);
+}
+
+.cookie-banner.hide {
+    transform: translateY(100%);
+}
+
+.cookie-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.cookie-text a {
+    color: #4A6FA5;
+    text-decoration: none;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.cookie-btn {
+    padding: 10px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    font-size: 14px;
+}
+
+.cookie-accept {
+    background: #4A6FA5;
+    color: white;
+}
+
+.cookie-accept:hover {
+    background: #3a5a8c;
+    transform: translateY(-2px);
+}
+
+.cookie-settings {
+    background: transparent;
+    border: 1px solid #4A6FA5;
+    color: #4A6FA5;
+}
+
+.cookie-settings:hover {
+    background: #4A6FA5;
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cookie-banner {
+        padding: 20px;
+    }
+}
+/* ========= КОНЕЦ ВСТАВКИ СТИЛЕЙ COOKIES ========= */
+
+
+.steps{
+position:relative;
+}
+
+.steps::before{
+content:"";
+position:absolute;
+left:50%;
+top:0;
+width:4px;
+height:100%;
+background:linear-gradient(#4A6FA5,transparent);
+transform:translateX(-50%);
+}
+
+/* CTA */
+
+.cta{
+background:linear-gradient(135deg,#4A6FA5,#2d4d81);
+border-radius:40px;
+padding:90px 30px;
+text-align:center;
+color:white;
+position:relative;
+overflow:hidden;
+}
+
+.cta::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+border-radius:50%;
+background:rgba(255,255,255,0.08);
+top:-240px;
+right:-140px;
+}
+
+.cta h2{
+font-size:52px;
+margin-bottom:18px;
+position:relative;
+z-index:1;
+}
+
+.cta p{
+font-size:20px;
+margin-bottom:30px;
+opacity:0.9;
+position:relative;
+z-index:1;
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(6px);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+pointer-events:none;
+transition:0.4s;
+z-index:9999;
+}
+
+.modal.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.modal-content{
+background:white;
+padding:40px;
+width:100%;
+max-width:520px;
+border-radius:34px;
+position:relative;
+animation:modalShow 0.5s ease;
+}
+
+@keyframes modalShow{
+from{
+transform:translateY(40px) scale(0.95);
+opacity:0;
+}
+
+to{
+transform:translateY(0px) scale(1);
+opacity:1;
+}
+}
+
+.close-modal{
+position:absolute;
+right:18px;
+top:18px;
+width:42px;
+height:42px;
+border:none;
+border-radius:50%;
+background:#edf2f7;
+cursor:pointer;
+font-size:18px;
+}
+
+.consult-form{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-top:26px;
+}
+
+.consult-form input,
+.consult-form select,
+.consult-form textarea{
+padding:18px;
+border-radius:18px;
+border:1px solid #dbe4f0;
+background:#f8fbff;
+font-size:15px;
+outline:none;
+transition:0.3s;
+}
+
+.consult-form input:focus,
+.consult-form select:focus,
+.consult-form textarea:focus{
+border-color:#4A6FA5;
+box-shadow:0 0 0 5px rgba(74,111,165,0.1);
+}
+
+.consult-form textarea{
+resize:none;
+min-height:120px;
+}
+
+/* FOOTER */
+
+footer{
+padding:70px 24px;
+text-align:center;
+color:#6b7280;
+}
+
+/* ANIMATION */
+
+.fade-up{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+.hero-grid,
+.grid-2,
+.grid-3,
+.grid-4{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:44px;
+}
+
+.hero-image{
+height:420px;
+}
+
+nav{
+display:none;
+}
+
+.steps::before{
+display:none;
+}
+
+/* Уменьшаем фото на мобильных */
+.team-photo {
+width: 140px;
+height: 140px;
+}
+
+.team-icon {
+width: 140px;
+height: 140px;
+font-size: 56px;
+}
+}
+
+@media(max-width:600px){
+.team-photo {
+width: 120px;
+height: 120px;
+}
+
+.team-icon {
+width: 120px;
+height: 120px;
+font-size: 48px;
+}
+}
+
+</style>
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<header>
+<div class="header-inner">
+
+<div class="logo">
+P2P<span></span>
+</div>
+
+<nav>
+<a href="#about">О нас</a>
+<a href="#how">Как это работает</a>
+<a href="#reviews">Отзывы</a>
+<a href="#team">Команда</a>
+</nav>
+
+<button class="btn-primary" onclick="openModal()">
+Записаться
+</button>
+
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+
+<div class="hero-grid">
+
+<div class="fade-up">
+
+<div class="badge">
+Психологическая поддержка студентов
+</div>
+
+<h1>
+Тебе не нужно
+оставаться
+со своими
+переживаниями
+<span>одному</span>
+</h1>
+
+<p>
+P2P помогает студентам получить поддержку,
+а будущим психологам — практический опыт
+под наблюдением наставников.
+</p>
+
+<div class="hero-buttons">
+<button class="btn-primary" onclick="openModal()">
+Записаться на консультацию
+</button>
+
+<button class="btn-outline">
+Стать психологом
+</button>
+</div>
+
+<div class="hero-info">
+<div>💙 Первая консультация бесплатно</div>
+<div>🔒 Полная конфиденциальность</div>
+<div>⚡ Подбор специалиста за 5 минут</div>
+</div>
+
+</div>
+
+<div class="hero-image fade-up">
+
+<img
+src="заставка-Photoroom.png"
+class="hero-mini-image"
+alt=""
+style="width: 600px; height: auto;"
+>
+
+<div class="float-label label1">
+💬 Поддержка рядом
+</div>
+
+<div class="float-label label2">
+🎓 Практика для психологов
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="how">
+<div class="container">
+
+<div class="section-title fade-up">
+<h2>Как это работает</h2>
+<p>Всё просто и безопасно</p>
+<div class="divider"></div>
+</div>
+
+<div class="grid-3">
+
+<div class="card fade-up">
+<img src="заявка-Photoroom.png" 
+style="width: 200px; height: auto;"
+class="mini-card-image">
+<h3>1. Оставьте заявку</h3>
+<p>
+Заполните короткую форму записи на консультацию.
+</p>
+</div>
+
+<div class="card fade-up">
+<img src="специалисты-Photoroom.png" 
+style="width: 200px; height: auto;"
+class="mini-card-image">
+<h3>2. Подбор специалиста</h3>
+<p>
+Мы подберём психолога под ваш запрос.
+</p>
+</div>
+
+<div class="card fade-up">
+<img src="встреча-Photoroom.png" 
+style="width: 150px; height: auto;"
+class="mini-card-image">
+<h3>3. Первая встреча</h3>
+<p>
+Первая консультация проходит бесплатно.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+
+<div class="section-title fade-up">
+<h2>Почему P2P?</h2>
+<p>Мы создаём пространство поддержки и доверия</p>
+<div class="divider"></div>
+</div>
+
+<div class="grid-3">
+
+<div class="card fade-up">
+<img src="поддержка-Photoroom.png" 
+style="width: 155px; height: auto;"
+class="mini-card-image">
+<h3>Поддержка</h3>
+<p>
+Студенты получают помощь от понимающих сверстников.
+</p>
+</div>
+
+<div class="card fade-up">
+<img src="безопасность-Photoroom (1).png" 
+style="width: 240px; height: auto;"
+class="mini-card-image">
+<h3>Безопасность</h3>
+<p>
+Конфиденциальность и бережное общение внутри платформы.
+</p>
+</div>
+
+<div class="card fade-up">
+<img src="практика-Photoroom.png" 
+style="width: 195px; height: auto;"
+class="mini-card-image">
+<h3>Практика</h3>
+<p>
+Будущие психологи получают настоящий опыт.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="reviews">
+<div class="container">
+
+<div class="section-title fade-up">
+<h2>Отзывы студентов</h2>
+<p>Что говорят пользователи платформы</p>
+<div class="divider"></div>
+</div>
+
+<div class="grid-3">
+
+<div class="card fade-up">
+<h3>Алина, 19 лет</h3>
+<p>
+«Было страшно обращаться к психологу,
+но здесь всё ощущается намного легче
+и безопаснее.»
+</p>
+</div>
+
+<div class="card fade-up">
+<h3>Максим, 21 год</h3>
+<p>
+«Очень понравилось, что со мной говорил
+человек, который понимает студенческую жизнь.»
+</p>
+</div>
+
+<div class="card fade-up">
+<h3>Дарья, 20 лет</h3>
+<p>
+«После первой консультации стало спокойнее.
+Теперь чувствую поддержку.»
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="team">
+<div class="container">
+
+    <!-- Блок 1: Команда проекта (первые 4 человека) -->
+    <div class="section-title fade-up">
+        <h2>Команда проекта</h2>
+        <p>Люди, создающие P2P</p>
+        <div class="divider"></div>
+    </div>
+
+    <div class="grid-4">
+        <!-- Мирослава -->
+        <div class="card fade-up">
+            <img src="mira.jpg" alt="Мирослава" class="team-photo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-icon" style="display: none;">👩‍🎓</div>
+            <h3>Мирослава</h3>
+            <p>Капитан команды</p>
+        </div>
+
+        <!-- Анастасия-аналитик -->
+        <div class="card fade-up">
+            <img src="nastya.jpg" alt="Анастасия" class="team-photo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-icon" style="display: none;">📊</div>
+            <h3>Анастасия</h3>
+            <p>Аналитик</p>
+        </div>
+
+        <!-- Аделина -->
+        <div class="card fade-up">
+            <img src="adelina.jpg" alt="Аделина" class="team-photo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-icon" style="display: none;">🎨</div>
+            <h3>Аделина</h3>
+            <p>Дизайнер</p>
+        </div>
+
+        <!-- Дарья -->
+        <div class="card fade-up">
+            <img src="daria.jpg" alt="Дарья" class="team-photo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-icon" style="display: none;">📢</div>
+            <h3>Дарья</h3>
+            <p>Маркетолог</p>
+        </div>
+    </div>
+
+    <!-- Блок 2: Наши специалисты (Людмила + 3 специалиста в строку) -->
+    <div style="margin-top: 60px;">
+        <div class="section-title fade-up">
+            <h2>Наши специалисты</h2>
+            <p>Квалифицированные психологи и супервизоры, готовые поддержать студентов на каждом этапе</p>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Людмила — по центру -->
+        <div style="display: flex; justify-content: center; margin-bottom: 50px;">
+            <div class="card fade-up" style="max-width: 320px; width: 100%;">
+                <img src="lydmila.jpg" alt="Людмила" class="team-photo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="team-icon" style="display: none;">👩‍⚕️</div>
+                <h3>Людмила</h3>
+                <p>Супервизор</p>
+            </div>
+        </div>
+
+        <!-- Александрина, Анастасия, Тимур — в одну строку -->
+        <div style="display: flex; flex-direction: row; justify-content: center; gap: 30px; flex-wrap: wrap;">
+            <div class="card fade-up" style="max-width: 320px; width: 100%;">
+                <img src="sandra.jpg" alt="Александрина" class="team-photo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="team-icon" style="display: none;">🧠</div>
+                <h3>Александрина</h3>
+                <p>Специалист</p>
+            </div>
+
+            <div class="card fade-up" style="max-width: 320px; width: 100%;">
+                <img src="anastasia2.jpg" alt="Анастасия" class="team-photo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="team-icon" style="display: none;">🌸</div>
+                <h3>Анастасия</h3>
+                <p>Специалист</p>
+            </div>
+
+            <div class="card fade-up" style="max-width: 320px; width: 100%;">
+                <img src="timur.png" alt="Тимур" class="team-photo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="team-icon" style="display: none;">🧑‍⚕️</div>
+                <h3>Тимур</h3>
+                <p>Специалист</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="cta fade-up">
+<h2>
+Готовы записаться?
+</h2>
+
+<p>
+Сделайте первый шаг к эмоциональной поддержке уже сегодня
+</p>
+
+<button class="btn-primary" onclick="openModal()">
+Записаться на консультацию
+</button>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 P2P — платформа психологической поддержки студентов 💙
+</footer>
+
+<!-- MODAL -->
+
+<div class="modal" id="consultModal">
+
+<div class="modal-content">
+
+<button class="close-modal" onclick="closeModal()">
+✕
+</button>
+
+<h2>
+Запись на консультацию
+</h2>
+
+<p style="margin-top:10px;color:#667085;">
+Оставьте заявку — и мы подберём подходящего специалиста.
+</p>
+
+<form class="consult-form">
+
+<input type="text" placeholder="Ваше имя" required>
+
+<input type="email" placeholder="E-mail" required>
+
+<select>
+<option>Что вас беспокоит?</option>
+<option>Тревожность</option>
+<option>Стресс</option>
+<option>Выгорание</option>
+<option>Проблемы в отношениях</option>
+<option>Другое</option>
+</select>
+
+<textarea placeholder="Кратко расскажите о ситуации"></textarea>
+
+<button type="submit" class="btn-primary">
+Отправить заявку
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- ========= ВСТАВКА: ДЕМО-ОКНО COOKIES (НЕ СОБИРАЕТ ДАННЫЕ) ========= -->
+<!-- Баннер согласия на cookies (чисто декоративный, данные не собирает) -->
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <p>🍪 Этот сайт использует cookies (демонстрация). Это просто учебный проект, реальные данные не собираются. 
+            <a href="#">Узнать больше</a></p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-settings" id="cookieSettings">Настройки</button>
+            <button class="cookie-btn cookie-accept" id="cookieAccept">Принять</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно настроек cookies (демо) -->
+<div class="modal" id="cookieSettingsModal">
+    <div class="modal-content" style="max-width: 450px;">
+        <button class="close-modal" onclick="closeCookieSettings()">✕</button>
+        <h2 style="margin-bottom: 20px;">🍪 Настройки cookies</h2>
+        <p style="color: #667085; margin-bottom: 20px;">Это демонстрационное окно. Реальные данные не собираются и не хранятся.</p>
+        
+        <div style="margin-bottom: 20px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                <input type="checkbox" checked disabled style="width: 18px; height: 18px;"> 
+                <span><strong>Необходимые cookies</strong> (всегда включены)</span>
+            </label>
+            <p style="font-size: 12px; color: #aaa; margin-top: 5px;">Обеспечивают работу сайта. Отключить нельзя.</p>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <label style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                <input type="checkbox" checked style="width: 18px; height: 18px;"> 
+                <span><strong>Аналитические cookies</strong> (демо)</span>
+            </label>
+            <p style="font-size: 12px; color: #aaa; margin-top: 5px;">В демо-версии данные не собираются.</p>
+        </div>
+        
+        <button class="btn-primary" style="width: 100%;" onclick="closeCookieSettings()">Сохранить настройки</button>
+    </div>
+</div>
+
+<script>
+
+function openModal(){
+document.getElementById('consultModal')
+.classList.add('active');
+}
+
+function closeModal(){
+document.getElementById('consultModal')
+.classList.remove('active');
+}
+
+window.addEventListener('click',(e)=>{
+
+const modal = document.getElementById('consultModal');
+
+if(e.target === modal){
+modal.classList.remove('active');
+}
+
+});
+
+// ========= ВСТАВКА: СКРИПТ ДЛЯ ДЕМО-ОКНА COOKIES =========
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieSettingsModal = document.getElementById('cookieSettingsModal');
+
+// Кнопка "Принять" — просто прячет баннер
+document.getElementById('cookieAccept')?.addEventListener('click', () => {
+    cookieBanner.classList.add('hide');
+    // Демонстрационное сообщение в консоль (не сохраняет данные)
+    console.log('🍪 Демо: пользователь "принял" cookies (реальные данные не сохранены)');
+});
+
+// Кнопка "Настройки" — открывает модальное окно с настройками
+document.getElementById('cookieSettings')?.addEventListener('click', () => {
+    cookieSettingsModal.classList.add('active');
+});
+
+// Закрытие окна настроек
+function closeCookieSettings() {
+    cookieSettingsModal.classList.remove('active');
+}
+
+// Если пользователь кликает вне окна настроек — закрываем
+window.addEventListener('click', (e) => {
+    if (e.target === cookieSettingsModal) {
+        cookieSettingsModal.classList.remove('active');
+    }
+});
+
+// Показываем баннер при загрузке страницы
+setTimeout(() => {
+    if(cookieBanner) cookieBanner.classList.remove('hide');
+}, 500);
+// ========= КОНЕЦ ВСТАВКИ СКРИПТА COOKIES =========
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+
+});
+
+
+
+},{
+threshold:0.15
+});
+
+document.querySelectorAll('.fade-up').forEach(el=>{
+observer.observe(el);
+});
+
+</script>
+
+</body>
+</html>
